@@ -44,7 +44,11 @@ namespace Ems.Controllers
 
         }
 
-        //yo action kai call vako xaina.
+        //logout action
+        public IActionResult Logout()
+        {
+            return RedirectToAction("Index", "Login");
+        }
        
 
     }
