@@ -13,7 +13,16 @@ namespace Ems.Controllers
         DataContext dal = new DataContext();
         public IActionResult Index()
         {
-            return View();
+            if (HttpContext.Session.GetString("logged") == "true")
+            {
+                return View();
+
+            }
+            else
+            {
+                return RedirectToAction("Logout", "Login");
+            }
+
         }
         public IActionResult AddQuestion(Question myquesion, String[] mcqoption)
         {
@@ -34,17 +43,35 @@ namespace Ems.Controllers
 
         public IActionResult SelectSubject()
         {
-            return View();
+            if (HttpContext.Session.GetString("logged") == "true")
+            {
+                return View();
+
+            }
+            else
+            {
+                return RedirectToAction("Logout", "Login");
+            }
         }
 
         public IActionResult Exam(String subject)
         {
-            ViewBag.MyQuestion = dal.questions.Where(x => x.subject.Equals(subject)).ToList();
+
+
+
+            if (HttpContext.Session.GetString("logged") == "true")
+            {
+                ViewBag.MyQuestion = dal.questions.Where(x => x.subject.Equals(subject)).ToList();
+                return View();
+
+            }
+            else
+            {
+                return RedirectToAction("Logout", "Login");
+            }
 
             //var sortedDogs = dogs.OrderByDescending(x => x.Age);
-
-
-            return View();
+            
         }
 
         //counting the marks of the student
@@ -91,7 +118,7 @@ namespace Ems.Controllers
                 {
                     if (givenanswer[a].Equals(examquestionlist[a].answer))
                     {
-                        
+
                     }
                 }
                 int c = 5;

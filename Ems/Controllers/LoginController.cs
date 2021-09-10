@@ -1,5 +1,7 @@
 ﻿using Ems.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,13 +27,20 @@ namespace Ems.Controllers
 
             if (user_List.Count() == 1 && user_List[0].password.Equals(password) && user_List[0].role.Equals("Teacher"))
             {
-                //admin role
+                //Teacher role
                 //setting session using HttpContext
+                HttpContext.Session.SetString("username", user_List[0].username);
+                HttpContext.Session.SetString("logged", "true");
+
+
                 return RedirectToAction("Index", "Question");
             }
 
             else if (user_List.Count() == 1 && user_List[0].password.Equals(password) && user_List[0].role.Equals("Student"))
             {
+                HttpContext.Session.SetString("username", user_List[0].username);
+                HttpContext.Session.SetString("logged", "true");
+
                 return RedirectToAction("SelectSubject", "Question");
             }
             
@@ -47,6 +56,10 @@ namespace Ems.Controllers
         //logout action
         public IActionResult Logout()
         {
+
+            HttpContext.Session.SetString("logged", "");
+            HttpContext.Session.SetString("username", "");
+
             return RedirectToAction("Index", "Login");
         }
        

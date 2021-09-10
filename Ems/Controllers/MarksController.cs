@@ -15,23 +15,15 @@ namespace Ems.Controllers
 
         public IActionResult Index(IFormCollection iformCollection)
         {
+            if (HttpContext.Session.GetString("logged") == "true")
+            {
 
-            /* List<Question> studentQuestion = dal.questions.Where(x => x.subject.Equals(subject)).ToList();
-             int count = studentQuestion.Where(x => answer.All(y => y.Equals(x.answer))).ToList().Count();
-             ViewBag.Marks = "you Obtained " + count + "in a test";*/
             //new
             string[] questionIds = iformCollection["questionId"];
             string[] givenanswer = new string[questionIds.Length];
             //String[] variable_name = new String[provide_size_here];
 
-            /*List<ViewModelAppointment> viewmodellist = appointmentlist.Select(appointmentx => new ViewModelAppointment()
-                 {
-                     aid=appointmentx.aid,
-                     doc_id= appointmentx.doc_id,
-                     uid = appointmentx.uid,
-                     adate = appointmentx.adate,
-                     patient_name = dal.Patients.Where(x=>x.p_id==appointmentx.uid).First().p_fullname
-                 }).ToList();*/
+
             List<Question> examquestionlist = new List<Question>();
 
 
@@ -62,26 +54,15 @@ namespace Ems.Controllers
 
 
 
-
-            //counting the objects
-            /*var data = examquestionlist.Where(x => x.answer.Equals(givenanswer)).ToList();*/
-
-
-            /* if (givenanswer[i]==examquestionlist.Where(x=>x.answer.Equals(givenanswer[i])))
-             {
-
-             }*/
-
-
-            /*foreach (var questionId in questionIds)
-            {
-                int totalscore = dal.questions.Where()
-            }*/
-
             return View();
+            }
+            else
+            {
+                return RedirectToAction("Logout","Login");
+            }
 
         }
-        //new
+       
     }
 
 }
