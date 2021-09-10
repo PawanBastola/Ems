@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\pawan\\source\\repos\\Ems\\Ems\\Ems.csproj": {}
+    "C:\\Users\\pawan\\Source\\Repos\\pawan22-python\\Ems\\Ems\\Ems.csproj": {}
   },
   "projects": {
-    "C:\\Users\\pawan\\source\\repos\\Ems\\Ems\\Ems.csproj": {
+    "C:\\Users\\pawan\\Source\\Repos\\pawan22-python\\Ems\\Ems\\Ems.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\pawan\\source\\repos\\Ems\\Ems\\Ems.csproj",
+        "projectUniqueName": "C:\\Users\\pawan\\Source\\Repos\\pawan22-python\\Ems\\Ems\\Ems.csproj",
         "projectName": "Ems",
-        "projectPath": "C:\\Users\\pawan\\source\\repos\\Ems\\Ems\\Ems.csproj",
+        "projectPath": "C:\\Users\\pawan\\Source\\Repos\\pawan22-python\\Ems\\Ems\\Ems.csproj",
         "packagesPath": "C:\\Users\\pawan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\pawan\\source\\repos\\Ems\\Ems\\obj\\",
+        "outputPath": "C:\\Users\\pawan\\Source\\Repos\\pawan22-python\\Ems\\Ems\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\pawan\\AppData\\Roaming\\NuGet\\NuGet.Config",
