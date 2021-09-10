@@ -40,23 +40,25 @@ namespace Ems.Controllers
         public IActionResult Exam(String subject)
         {
             ViewBag.MyQuestion = dal.questions.Where(x => x.subject.Equals(subject)).ToList();
-            
+
+            //var sortedDogs = dogs.OrderByDescending(x => x.Age);
+
+
             return View();
         }
 
         //counting the marks of the student
-       /* public IActionResult CountMarks()
-        {
-            //List<Doctor_Details> date_filters = available_doctors.Where(x => udatelist.All(y => y.did != x.d_id)).ToList<Doctor_Details>();
+        /* public IActionResult CountMarks()
+         {
+             //List<Doctor_Details> date_filters = available_doctors.Where(x => udatelist.All(y => y.did != x.d_id)).ToList<Doctor_Details>();
 
-            //int count = dal.questions.Where(x=>x.subject.Equals(subject)).Where(y=>answer.All(y=>y.Equals(x.answer))).ToList().Count();
-            
-        }
-*/
+             //int count = dal.questions.Where(x=>x.subject.Equals(subject)).Where(y=>answer.All(y=>y.Equals(x.answer))).ToList().Count();
+
+         }
+ */
 
         public IActionResult Submit(IFormCollection iformCollection)
         {
-            int count = 0;
             string[] questionIds = iformCollection["questionId"];
             string[] givenanswer = new string[questionIds.Length];
             //String[] variable_name = new String[provide_size_here];
@@ -71,7 +73,7 @@ namespace Ems.Controllers
                  }).ToList();*/
             List<Question> examquestionlist = new List<Question>();
 
-            
+
 
             int i = 0;
             foreach (var qid in questionIds)
@@ -82,22 +84,45 @@ namespace Ems.Controllers
                 givenanswer[i] = iformCollection["option_" + qid];
                 i++;
             }
+
+            try
+            {
+                for (int a = 0; a <= givenanswer.Length; a++)
+                {
+                    if (givenanswer[a].Equals(examquestionlist[a].answer))
+                    {
+                        
+                    }
+                }
+                int c = 5;
+
+                ViewBag.Marks = c;
+
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex);
+            }
+
+
             //counting the objects
             /*var data = examquestionlist.Where(x => x.answer.Equals(givenanswer)).ToList();*/
 
 
-           /* if (givenanswer[i]==examquestionlist.Where(x=>x.answer.Equals(givenanswer[i])))
-            {
+            /* if (givenanswer[i]==examquestionlist.Where(x=>x.answer.Equals(givenanswer[i])))
+             {
 
-            }*/
-           
+             }*/
+
 
             /*foreach (var questionId in questionIds)
             {
                 int totalscore = dal.questions.Where()
             }*/
 
-            return RedirectToAction("Index","Marks");
+            return RedirectToAction("Index", "Marks");
         }
 
     }

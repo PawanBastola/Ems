@@ -10,7 +10,7 @@
 
 @{ int i = 1;}
 
-<form method="post" asp-controller="Question" asp-action="Submit">
+<form method="post" asp-controller="Marks" asp-action="Index">
     @foreach (var item in ViewBag.MyQuestion)
     {
 
@@ -22,7 +22,9 @@
                 @{
                     int qid = item.qid;
                     DataContext dal = new DataContext();
-                    var optionsss = dal.optionss.ToList();
+                    var myoptionunsorted = dal.optionss.ToList();
+                    var optionsss = myoptionunsorted.OrderBy(x => x.mcqoption).ToList();
+
 
                     <input type="hidden" name="questionId" value="@item.qid" />
                     foreach (var questionoptions in optionsss)
