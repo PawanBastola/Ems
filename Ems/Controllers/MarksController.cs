@@ -19,7 +19,7 @@ namespace Ems.Controllers
             /* List<Question> studentQuestion = dal.questions.Where(x => x.subject.Equals(subject)).ToList();
              int count = studentQuestion.Where(x => answer.All(y => y.Equals(x.answer))).ToList().Count();
              ViewBag.Marks = "you Obtained " + count + "in a test";*/
-            //new new
+            //new
             string[] questionIds = iformCollection["questionId"];
             string[] givenanswer = new string[questionIds.Length];
             //String[] variable_name = new String[provide_size_here];
