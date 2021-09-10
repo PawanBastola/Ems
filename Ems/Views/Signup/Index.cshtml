@@ -1,0 +1,92 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="~/css/site.css" />
+
+
+
+<!--for Teacher-->
+<div class="teacher_panel">
+
+    <form method="post" asp-controller="Signup" asp-action="AddTeacher">
+
+
+        <div class="card border-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header">Teacher Signup</div>
+            <div class="card-body text-dark">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Username</label>
+                    <input type="text" name="username" class="form-control" aria-describedby="emailHelp" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">re-enter password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm" name="password">
+                </div>
+                <input type="submit" class="btn btn-primary" value="Sign Up" />
+            </div>
+        </div>
+    </form>
+    <a class="iam_student" href="#">I am a Student →</a>    <a asp-controller="Login" asp-action="Index">back to login</a>
+</div>
+<!--end teacher-->
+<!--for student-->
+<div class="student_panel">
+    <form method="post" asp-controller="Signup" asp-action="AddStudent">
+
+
+        <div class="card border-dark mb-3" style="max-width: 18rem;">
+            <div class="card-header">Student Signup</div>
+            <div class="card-body text-dark">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Username</label>
+                    <input type="text" name="username" class="form-control" aria-describedby="emailHelp" placeholder="Enter username">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">re-enter password</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm" name="password">
+                </div>
+                <input type="submit" class="btn btn-primary" value="Sign Up" />
+            </div>
+        </div>
+    </form>
+    <a class="iam_teacher" href="#">I am a Teacher →</a>    <a asp-controller="Login" asp-action="Index">back to login</a>
+</div>
+<!--end student-->
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".teacher_panel").hide();
+
+            $(".iam_teacher").click(function () {
+                $(".student_panel").hide();
+                $(".teacher_panel").show();
+
+            });
+
+            $(".iam_student").click(function () {
+                $(".teacher_panel").hide();
+                $(".student_panel").show();
+
+            });
+
+        });
+    </script>

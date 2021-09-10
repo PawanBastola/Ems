@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+<form method="post" asp-controller="Login" asp-action="LoginCheck">
+
+
+    <div class="card border-dark mb-3" style="max-width: 18rem;">
+        <div class="card-header">Login</div>
+        <div class="card-body text-dark">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Username</label>
+                <input type="text" name="username" class="form-control" aria-describedby="emailHelp" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="password">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Login" />
+        </div>
+        <a asp-controller="Signup" asp-action="Index">Don't have an Account ?</a>
+    </div>
+
+
+
+
+   
+</form>
+<script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>

@@ -1,0 +1,46 @@
+﻿
+@model Ems.Models.DataContext
+@{
+    Layout = "_Layout";
+}
+
+
+
+
+
+@{ int i = 1;}
+
+<form method="post" asp-controller="Question" asp-action="Submit">
+    @foreach (var item in ViewBag.MyQuestion)
+    {
+
+        <div class="card">
+            <div class="card-body">
+
+                <span><b>@i.</b></span><label>@item.questions</label><br />
+
+                @{
+                    int qid = item.qid;
+                    DataContext dal = new DataContext();
+                    var optionsss = dal.optionss.ToList();
+
+                    <input type="hidden" name="questionId" value="@item.qid" />
+                    foreach (var questionoptions in optionsss)
+                    {
+
+                        if (questionoptions.qid == item.qid)
+                        {
+                            <input type="radio" name="option_@questionoptions.qid" value="@questionoptions.mcqoption"> @questionoptions.mcqoption
+                            <br />
+                        }
+                    }
+
+                }
+
+                @{i++;}
+            </div>
+        </div>
+        <br />
+    }
+    <input type="submit" value="Submit Answers" />
+</form>

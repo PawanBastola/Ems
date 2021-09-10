@@ -1,0 +1,21 @@
+﻿@page
+@model Ems.Views.Question.SelectSubjectModel
+@{
+    Layout = "_Layout";
+}
+<form method="post" asp-controller="Question" asp-action="Exam">
+    <div class="form-group">
+        <label>Subject</label>
+        <select Class="form-control" name="subject">
+
+            <option>select</option>
+            <option>BCA</option>
+            <option>CSIT</option>
+
+        </select>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="TakeExam"/>
+    </div>
+</form>
